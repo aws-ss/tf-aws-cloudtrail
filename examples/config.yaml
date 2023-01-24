@@ -1,0 +1,59 @@
+policy:
+  - name: "cloudtrail-to-create"
+    s3_bucket_name: "aws-cloudtrail-logs-362252864672-5f4dec40"
+    enable_logging: ~
+    enable_log_file_validation: ~
+    sns_topic_name: ~
+    is_multi_region_trail: ~
+    include_global_service_events: ~
+    cloud_watch_logs_role_arn: ~
+    cloud_watch_logs_group_arn: ~
+    kms_key_id: ~
+    is_organization_trail: ~
+    s3_key_prefix: ~
+    insight_selector: {
+      # ApiCallRateInsight: True,
+      # ApiErrorRateInsight: True
+    }
+    event_selector: {
+      read_write_type: "All",
+      include_management_events: true,
+      exclude_management_event_sources: ["kms.amazonaws.com"],
+      data_resource: {
+        type: "AWS::S3::Object",
+        values: ["arn:aws:s3"]
+        # type: "AWS::Lambda::Function
+        # type: "AWS::DynamoDB::Table"
+        # values : ["arn:aws:lambda" or "arn:aws:lambda:<region>:<account number>:function:<function name>"]
+        # values : ["arn:aws:dynamodb" or "arn:aws:dynamodb:<region>:<account number>:table/<table name>"]
+      }
+    }
+    tags: {
+      Team: Security
+    }
+
+  - name: "cloudtrail-to-create1"
+    s3_bucket_name: "aws-cloudtrail-logs-362252864672-5f4dec40"
+    enable_logging: ~
+    enable_log_file_validation: ~
+    sns_topic_name: ~
+    is_multi_region_trail: ~
+    include_global_service_events: ~
+    cloud_watch_logs_role_arn: ~
+    cloud_watch_logs_group_arn: ~
+    kms_key_id: ~
+    is_organization_trail: ~
+    s3_key_prefix: ~
+    insight_selector: {
+      ApiCallRateInsight: True,
+      # ApiErrorRateInsight: True
+    }
+    event_selector: {
+      read_write_type: "All",
+      include_management_events: true,
+      exclude_management_event_sources: ["kms.amazonaws.com", "rdsdata.amazonaws.com"],
+      data_resource: ~
+    }
+    tags: {
+      Team: SRE
+    }
