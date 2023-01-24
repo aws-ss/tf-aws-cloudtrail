@@ -4,7 +4,7 @@ A Terraform module that creates an AWS CloudTrail (using YAML).
 
 ## Examples
 
-* See [Example Codes](https://github.com/woodonggyu/terraform-aws-wafv2/tree/main/examples) for full details.
+* See [Example Codes](https://github.com/aws-ss/tf-aws-cloudtrail/tree/main/examples) for full details.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
